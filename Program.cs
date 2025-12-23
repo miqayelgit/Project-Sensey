@@ -231,4 +231,117 @@
 
         return mult;
     }
+
+    public static int EvenSumOfPow_231(int[] arr)
+    {
+        int sum = 0;
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] % 2 == 0)
+            {
+                sum += arr[i] * arr[i];
+            }
+        }
+
+        return sum;
+    }
+
+    public static int EvenNumsCount_232(int[] arr)
+    {
+        int count = 0;
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] % 2 == 0)
+                count++;
+        }
+
+        return count;
+    }
+
+
+    public static int EvenNumsMult_233(int[] arr)
+    {
+        int mult = 1;
+        for(int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] % 2 == 0)
+                mult *= arr[i];
+        }
+        
+        return mult;
+
+    }
+    public static int EvenNumsSum_233(int[] arr)
+    {
+        int sum = 0;
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] % 2 == 0)
+                sum += arr[i];
+        }
+
+        return sum;
+    }
+
+    public static int OddNumsAVGMiddle_234(int[] arr)
+    {
+        int count = 0;
+        int sum = 0;
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] % 2 != 0)
+            {
+                count++;
+                sum += arr[i];
+            }
+        }
+
+        return sum / count;
+    }
+
+    public static int OddNumsCount_236(int[] arr)
+    {
+        int count = 0;
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] % 2 != 0)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public static int OddNumsMult_236(int[] arr)
+    {
+        int mult = 1;
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] % 2 != 0)
+            {
+                mult *= arr[i];
+            }
+        }
+
+        return mult;
+    }
+
+    public static int ZeroValueCount_237(int[] arr)
+    {
+        int count = 0;
+        for(int i = 0; i < arr.Length; i++)
+        {
+            if(arr[i] == 0)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+    public static void Main() 
+    {
+        int[] arr = { 6, 8, 9, 3, 10, 0, 0 };
+        Console.WriteLine(ZeroValueCount_237(arr));
+    }
 }
