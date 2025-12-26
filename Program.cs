@@ -560,7 +560,7 @@ class Problems
 
     }
 
-    public static int SumOfIndexes_248(float[] arr)
+    public static int SumOfIndexes_348(float[] arr)
     {
         int sumOfIndexes = 0;
         for (int i = 0; i < arr.Length ; i++)
@@ -575,7 +575,7 @@ class Problems
         return sumOfIndexes;
     }
 
-    public static int OddValues(float[] arr)
+    public static int OddValues_349(float[] arr)
     {
         int sumOfIndexes = 0;
         for (int i = 0; i < arr.Length; i++)
@@ -588,5 +588,73 @@ class Problems
         }
 
         return sumOfIndexes;
+    }
+
+    public static int Value_352(int[] arr)
+    {
+        int mult = arr[0];
+        int sum = mult;
+        bool foundNegativeNumber = false;
+
+        for (int i = 1; i < arr.Length; i++)
+        {
+            mult *= arr[i];
+            sum += mult;
+
+            if (!foundNegativeNumber)
+            {
+                if (arr[i] < 0)
+                {
+                    foundNegativeNumber = true;
+                }
+            }
+
+            if (arr[i] < 0)
+            {
+                break;
+            }
+        }
+
+        if (foundNegativeNumber)
+        {
+            return sum;
+        }
+
+        return 0;
+    }
+
+    public static int BiggestNumber_354(int[] arr)
+    {
+        int biigestNum = 0;
+        int midIndex = arr.Length / 2;
+        int lastIndex = arr.Length - 1;
+        bool isNotSimetric = false;
+
+        if (arr.Length % 2 != 0)
+        {
+            return 0;
+        }
+
+        for (int i = 0; i < midIndex; i++)
+        {
+            if (arr[i] != arr[lastIndex])
+            {
+                isNotSimetric = true;
+            }
+
+            if (isNotSimetric)
+            {
+                return 0;
+            }
+
+            if (biigestNum < arr[i])
+            {
+                biigestNum = arr[i];
+            }
+
+            lastIndex--;
+        }
+
+        return biigestNum;
     }
 }
