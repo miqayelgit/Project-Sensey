@@ -39,11 +39,6 @@ namespace Project_Sensey.Classes
         }
 
 
-        public static void Main()
-        {
-            var studentsLists = Implement(5);
-        }
-
         public static Student[][] Implement(int studentsCount)
         { 
             Student[] StudentsList = [];
