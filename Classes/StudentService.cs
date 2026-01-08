@@ -32,16 +32,15 @@ namespace Project_Sensey.Classes
             int count = 0;
             Student[] olderStudents = new Student[olderStudentsCount];
 
-            for (int i = 0; i < olderStudentsCount;i++)
+            for (int i = 0; i < students.Length; i++)
             {
                 if (students[i].Age > age)
                 {
                     Student student = new Student(students[i]);
-                    olderStudents[i] = student;
+                    olderStudents[count] = student;
                     count++;
                 }
 
-                if (olderStudentsCount == count) break;
             }
             return olderStudents;
 
