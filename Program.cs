@@ -1,46 +1,29 @@
 ﻿
 
 using Project_Sensey.Classes;
+using Project_Sensey.Classes.Inheritence;
 
 class Program
 {
     public static void Main()
     {
+        BankAccount bankAccount = new BankAccount(50000);
 
-        //Student[] students = StudentService.CreateStudentsArray(29);
-        //Console.WriteLine("Printing Students...");
-        //StudentService.PrintStudents(students);
+        Console.WriteLine("Initial Balance: " + bankAccount.Balance);
 
-        //Console.WriteLine("------------------------------------");
+        bankAccount.Withdraw(50000);
+        Console.WriteLine("First Withdraw Balance: " + bankAccount.Balance);
 
-        //Student[] olderStudents = StudentService.GetOlderStudentsArray(students, 21);
-        //Console.WriteLine("Printing Older Students...");
-        //StudentService.PrintStudents(olderStudents);
-        //Console.WriteLine("-----------------------------------");
-        //if (olderStudents.Length > 0)
-        //{
-        //    Console.WriteLine($"Changed {olderStudents[0].FirstName} {olderStudents[0].LastName} to Smbo.");
-        //    olderStudents[0].FirstName = "Smbo";
-        //}
+        Console.WriteLine("--------------------------------------");
 
-        //Console.WriteLine("Printing students again");
-        //StudentService.PrintStudents(students);
+        QA qa = new QA(10000);
+        Console.WriteLine("QA Salary: " + qa.Salary);
+        Console.WriteLine("QA Bonus: " + qa.Bonus);
 
-        int[,] matrix = MatrixService.CreateMatrix(4);
-        Console.WriteLine("Matrix!");
-        MatrixService.PrintMatrix(matrix);
-        Console.WriteLine();
-        Console.WriteLine("Sum Of Main Diagonal: " + MatrixService.SumMainDiagonal(matrix));
-
-        Console.WriteLine();
-
-        Console.WriteLine("Sum Of Secondary Diagonal: " + MatrixService.SumSecondaryDiagonal(matrix));
-
-        Console.WriteLine();
-
-        Console.WriteLine("Sum Of Above Primary Diagonal: " + MatrixService.SumAbovePrimaryDiagonal(matrix));
-
-
+        Developer developer = new Developer(15000);
+        Console.WriteLine("Developer Salary: " + developer.Salary);
+        Console.WriteLine("Developer Bonus: " + developer.Bonus);
+             
 
     }
 }
