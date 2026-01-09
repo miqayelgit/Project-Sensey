@@ -26,11 +26,19 @@ class Program
         //Console.WriteLine("Printing students again");
         //StudentService.PrintStudents(students);
 
-        int[,] matrix = MatrixService.CreateMatrix(6, 6);
+        int[,] matrix = MatrixService.CreateMatrix(4);
         Console.WriteLine("Matrix!");
         MatrixService.PrintMatrix(matrix);
         Console.WriteLine();
         Console.WriteLine("Sum Of Main Diagonal: " + MatrixService.SumMainDiagonal(matrix));
+
+        Console.WriteLine();
+
+        Console.WriteLine("Sum Of Secondary Diagonal: " + MatrixService.SumSecondaryDiagonal(matrix));
+
+        Console.WriteLine();
+
+        Console.WriteLine("Sum Of Above Primary Diagonal: " + MatrixService.SumAbovePrimaryDiagonal(matrix));
 
 
 
