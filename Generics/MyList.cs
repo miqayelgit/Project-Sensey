@@ -9,17 +9,18 @@ namespace Project_Sensey.Generics
 
     public class MyList<T>
     {
-        private static T[] mainArr = new T[10];
-        private int Index = 0;
-        private int SizeToExpand = 5;
+        private T[] _mainArr = new T[8];
+        private int _count = 0;
+        private int _sizeToExpand = 8;
+        private int _currentIndex= 0;
         public void Add(T value)
         {
-            if (Index >= mainArr.Length)
+            if (_count >= _mainArr.Length)
             {
-                mainArr = ResizeArray(mainArr);
+                _mainArr = ResizeArray(_mainArr);
             }
-            mainArr[Index] = value;
-            Index++;
+            _mainArr[_count] = value;
+            _count++;
            
         }
 
@@ -33,17 +34,17 @@ namespace Project_Sensey.Generics
 
         public void Remove(T value)
         {
-            T[] newArr = new T[mainArr.Length - 1];
+            T[] newArr = new T[_mainArr.Length - 1];
             int j = 0;
             bool numberFoundInList = false;
 
-            for (int i = 0; i < mainArr.Length; i++)
+            for (int i = 0; i < _mainArr.Length; i++)
             {
-                if (mainArr[i] is not null && !mainArr[i].Equals(value))
+                if (_mainArr[i] is not null && !_mainArr[i].Equals(value))
                 {
-                    if (j < mainArr.Length - 1)
+                    if (j < _mainArr.Length - 1)
                     {
-                        newArr[j] = mainArr[i];
+                        newArr[j] = _mainArr[i];
                         j++;
                     }
                 }
@@ -55,7 +56,7 @@ namespace Project_Sensey.Generics
 
             if (numberFoundInList)
             {
-                mainArr = newArr;
+                _mainArr = newArr;
             }
         }
         public void RemoveRange(T[] arr)
@@ -73,22 +74,22 @@ namespace Project_Sensey.Generics
         }
         public T Get(int index)
         {
-            return mainArr[index];
+            return _mainArr[index];
         }
 
         public void Insert(int index, T value)
         {
-            if (index > Index)
+            if (index > _count)
             {
                 throw new IndexOutOfRangeException();
             }
-            mainArr[index] = value;
+            _mainArr[index] = value;
         }
 
 
-        public static void Print(MyList<T> list)
+        public void Print(MyList<T> list)
         {
-            for (int i = 0; i < mainArr.Length; i++)
+            for (int i = 0; i < _mainArr.Length; i++)
             {
                 Console.WriteLine(list.Get(i));
             }
@@ -96,7 +97,7 @@ namespace Project_Sensey.Generics
 
         private T[] ResizeArray(T[] initialArray)
         {
-            T[] newArray = new T[initialArray.Length + SizeToExpand];
+            T[] newArray = new T[initialArray.Length + _sizeToExpand];
 
             if (initialArray.Length >= newArray.Length)
             {
@@ -109,6 +110,37 @@ namespace Project_Sensey.Generics
             }
 
             return newArray;
+        }
+
+        public void PrintCurrent()
+        {
+            Console.WriteLine(_mainArr[_currentIndex]);
+            IncrementCurrentIndex();
+
+        }
+
+        public bool HasNext()
+        {
+            if(_currentIndex < _count)
+            {
+                return true;
+            }
+            else
+            {
+                ResetIndex();
+            }
+
+            return false;
+        }
+
+        private void ResetIndex()
+        {
+            _currentIndex = 0;
+        }
+
+        private void IncrementCurrentIndex()
+        {
+            _currentIndex++;
         }
 
     }
